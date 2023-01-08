@@ -2,7 +2,7 @@ package projects;
 
 import java.util.Scanner;
 
-public class ikininkalarifor {
+public class ikininkatlarifor {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -15,8 +15,6 @@ public class ikininkalarifor {
             if (i >= k) {
                 break;
             }
-
         }
     }
-
 }
