@@ -1,5 +1,4 @@
-package projects;
-
+package schoolProject;
 import java.util.Scanner;
 import java.util.Random;
 
