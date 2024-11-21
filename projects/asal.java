@@ -1,4 +1,4 @@
-package projects;
+package schoolProject;
 import java.util.Scanner;
 public class asal {
     public static void main(String[] args) {
