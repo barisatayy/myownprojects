@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TLOU Wiki</title>
+    <style>
+        body {
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url(window.png);
+            position: relative;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .header {
+            color: #f27b27;
+            text-align: center;
+            user-select: none;
+            font-size: 40px;
+            padding: 30px;
+            border-style: solid;
+            border-color: aqua;
+            border-radius: 2%;
+            font-style: oblique;
+            font-weight: bold;
+            letter-spacing: 10px;
+            word-spacing: 40px;
+            text-decoration-line: underline overline;
+            text-shadow: 0 0 10px black;
+            background: url(elliesroom.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .header .h1header {
+            transition: all 0.2s ease-in-out;
+            transition-timing-function: ease;
+        }
+        
+        .header .h1header:hover {
+            background-color: rgba(255, 255, 255, 0.159);
+        }
+        
+        .navbar {
+            background-color: #444;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 60px;
+        }
+        
+        .nav-button {
+            color: rgb(255, 255, 255);
+            font-size: 25px;
+            text-decoration: none;
+            padding: 250px;
+            transition: all 0.2s ease-in-out;
+            background-color: rgb(49, 49, 49);
+            border-style: solid;
+            border-color: white;
+        }
+        
+        .nav-button:hover {
+            background-color: #f27b27;
+            transform: scale(1.1);
+        }
+        
+        .nav-button.active {
+            background-color: #f27b27;
+        }
+        
+        .info {
+            background-color: rgb(49, 49, 49);
+            color: rgb(252, 28, 28);
+            padding: 1px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            border-top-style: solid;
+            border-color: #f27b27;
+            line-height: 1;
+            background-image: linear-gradient(#333, black);
+            z-index: 1200;
+        }
+        
+        #images-content,
+        #info-content,
+        #gameplay-content {
+            display: none;
+        }
+        
+        #images-content h1 {
+            background-color: #f27b27;
+            margin: 0;
+            padding: 0;
+            color: white;
+            text-align: center;
+            position: sticky;
+            top: 0;
+        }
+        
+        .ellieimg,
+        .joelimg,
+        .abbyimg,
+        .ginaimg,
+        .infectedsimg {
+            display: flex;
+            justify-content: space-around;
+            background-color: black;
+        }
+        
+        .space {
+            height: 350px;
+            background-color: black;
+            text-align: center;
+            padding-top: 200px;
+        }
+        
+        .space button {
+            background-color: black;
+            border-radius: 10px;
+            border: 2px solid #f27b27;
+            color: white;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .space button:hover {
+            background-color: #f27b27;
+            transform: scale(1.3);
+        }
+        
+        .space a {
+            color: aqua;
+        }
+        
+        .toup {
+            position: fixed;
+            bottom: 60px;
+            right: 15px;
+            line-height: 50px;
+            padding: 0 20px;
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            z-index: 1000;
+        }
+        
+        #images-content img {
+            width: 30%;
+        }
+        
+        #info-content {
+            background-color: black;
+            margin: 0;
+            padding: 20px 20px;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .infos {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .info1,
+        .info2,
+        .info3 {
+            height: 300px;
+            width: 500px;
+            border: 5px solid aqua;
+            overflow: auto;
+            color: white;
+            display: block;
+            display: inline-flex;
+            margin-right: 30px;
+        }
+        
+        .info4 {
+            height: 300px;
+            width: 500px;
+            overflow: auto;
+            color: white;
+            display: block;
+            display: inline-flex;
+            margin-top: 30px;
+            margin-right: 40px;
+            color: white;
+        }
+        
+        .info5 {
+            height: 300px;
+            width: 500px;
+            overflow: auto;
+            color: white;
+            display: block;
+            display: inline-flex;
+            margin-top: 30px;
+            margin-right: 40px;
+            color: white;
+        }
+        
+        .info6 {
+            height: 300px;
+            width: 500px;
+            overflow: auto;
+            color: white;
+            display: block;
+            display: inline-flex;
+            margin-top: 30px;
+            color: white;
+        }
+        
+        legend {
+            text-align: center;
+            color: #f27b27;
+        }
+        
+        #gameplay-content {
+            background-color: black;
+            width: 100%;
+            height: 100vh;
+        }
+        
+        .infonav {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            margin: 0;
+            text-align: center;
+        }
+        
+        .infonav fieldset {
+            border-radius: 30px;
+            border-color: aqua;
+        }
+        
+        .table {
+            width: 100%;
+            margin-top: 60px;
+            border: 1px solid white;
+            border-collapse: collapse;
+            text-align: center;
+            color: white;
+            border: solid 1px;
+        }
+        
+        .table td {
+            border: solid 1px #f27b27;
+            color: aqua;
+        }
+        
+        .table th {
+            border: solid 1px;
+            font-size: larger;
+            color: #f27b27;
+        }
+        
+        .video {
+            display: flex;
+            justify-content: space-between;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+        
+        .video iframe {
+            width: 48%;
+            box-sizing: border-box;
+        }
+        
+        .x {
+            background-color: black;
+            width: 100vw;
+            height: 100wh;
+            box-sizing: border-box;
+        }
+        
+        .x h1 {
+            text-align: center;
+            color: #f27b27;
+            padding-top: 30px;
+        }
+        
+        .x p {
+            color: white;
+            column-count: 4;
+            padding: 3%;
+            box-sizing: border-box;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="header">
+        <p1 class="h1header">THE LAST OF US WIKI </p1>
+    </div>
+    <div class="navbar">
+        <button class="nav-button" id="images" onclick="showPage('images')">Görseller</button>
+        <button class="nav-button" id="info" onclick="showPage('info')">Bilgiler</button>
+        <button class="nav-button" id="gameplay" onclick="showPage('gameplay')">Oynanış</button>
+    </div>
+
+    <div class="page-content" id="images-content">
+        <div class="toup">
+            <a href="#">Yukarı Çık</a>
+        </div>
+        <h1>Ellie</h1>
+        <div class="ellieimg">
+            <img src="ellie1.jpg" alt="Ellie">
+            <img src="ellie2.jpg" alt="Ellie">
+            <img src="elliesroom.jpg" alt="Ellie">
+        </div>
+        <h1>Joel</h1>
+        <div class="joelimg">
+            <img src="joel1.jpg" alt="Ellie">
+            <img src="joel2.jpg" alt="Ellie">
+            <img src="joel3.jpg" alt="Ellie">
+        </div>
+        <h1>Abby</h1>
+        <div class="abbyimg">
+            <img src="abby1.jpg" alt="Ellie">
+            <img src="abby2.jpg" alt="Ellie">
+            <img src="abby3.jpg" alt="Ellie">
+        </div>
+        <h1>Gina</h1>
+        <div class="ginaimg">
+            <img src="gina1.jpg" alt="Ellie">
+            <img src="gina2.jpg" alt="Ellie">
+            <img src="gina3.png" alt="Ellie">
+        </div>
+        <h1>Infecteds</h1>
+        <div class="infectedsimg">
+            <img src="infected1.jpg" alt="Ellie">
+            <img src="infected2.jpg" alt="Ellie">
+            <img src="infected3.jpg" alt="Ellie">
+        </div>
+        <div class="space">
+            <button onclick="redirectToPage()">Kaynakça</button>
+        </div>
+    </div>
+    <div class="page-content" id="info-content">
+        <div class="infos">
+            <span class="info1">
+                <fieldset>
+                    <legend>Yayın Sonrası Aşamalar</legend>
+                    <p>2013 <br> On the first annual The Last of Us Day,
+                        Naughty
+                        Dog invited fans on Twitter to describe their
+                        experience
+                        (real or not) of how they'd survive the pandemic
+                        using
+                        the hashtag #OutbreakDay and Naughty Dog retweeted
+                        their
+                        favorites
+                        throughout the day. Additionally, Naughty Dog
+                        released
+                        behind-the-scenes footage of the musical
+                        "alternate ending" to the public complete with
+                        rendering
+                        and commentary by Game Director Neil Druckmann.
+                        <br><br>2014 <br>On the second annual The Last of Us
+                        Day, Naughty Dog announced the winners of the 2014
+                        Photo
+                        Mode Contest. Additionally, Naughty Dog unveiled a
+                        limited edition Clicker Statue that would later
+                        become
+                        available for
+                        purchase on Naughty Dog's web store. The statue was
+                        hand-sculpted by Hollywood VFX artist Vincent Van
+                        Dyke.
+                        1,500 units were made available at $150 each.</p>
+                    <br> 2015 <br>For the third annual The Last of Us Day,
+                    Naughty Dog revealed another Clicker statue, this time
+                    produced by Gaming Heads. The statue was available for
+                    pre-order in two editions: regular and exclusive (which
+                    featured a
+                    gas mask on the clicker). In addition to the statue,
+                    Naughty
+                    Dog also announces a global PSN sale on select The Last
+                    of
+                    Us content. The sale ran from September 23 until October
+                    7,
+                    2015. Lastly, a new PS4 dynamic theme, featuring the
+                    fungal
+                    growth from the game's title sequence and melodies of
+                    Gustavo Santaolalla, was made available at $0.99 for a
+                    limited time. 2016 OutbreakDay 2016 Promotional image.
+                    For
+                    the fourth annual The Last of Us Day, Naughty Dog
+                    collaborated with
+                    Mondo to create a limited edition poster inspired by The
+                    Last of Us. Each poster was hand-numbered and signed by
+                    artist Kevin Tong. Posters were available for purchase
+                    on
+                    MondoTees.com. In addition to the poster, Naughty Dog
+                    ran a
+                    week-long
+                    sale on the PlayStation Store and a 20% off sale on The
+                    Last
+                    of Us apparel and collectibles on the PlayStation Gear
+                    Store.
+                </fieldset>
+            </span>
+            <span class="info2">
+                <fieldset>
+                    <legend>İsim Değişikliği</legend>
+                    <p>On September 22, 2020, Naughty Dog announced on their
+                        official social media accounts that Outbreak Day
+                        would
+                        be rebranded as "The Last of Us Day" in an effort to
+                        be
+                        more conscientious of the events and challenges of
+                        the
+                        past year surrounding
+                        the COVID-19 pandemic. The name change became
+                        effective
+                        on September 26, 2020. The announcement was posted
+                        as an
+                        image with the hashtag #TheLastofUsDay on all
+                        platforms.
+                    </fieldset>
+                </span>
+            <span class="info3">
+                    <fieldset>
+                        <legend>Genel Bilgiler</legend>
+                        <p>The Last of Us is a 2013 action-adventure game
+                            developed by Naughty Dog and published by Sony
+                            Computer Entertainment. Players control Joel, a
+                            smuggler tasked with escorting a teenage girl,
+                            Ellie, across a post-apocalyptic United States.
+                            The
+                            Last of Us is played from a third-person
+                            perspective. Players use firearms and improvised
+                            weapons and can use stealth to defend against
+                            hostile humans and cannibalistic creatures
+                            infected
+                            by a mutated fungus. In the online multiplayer
+                            mode,
+                            up to eight players engage in cooperative and
+                            competitive gameplay.
+                            Development of The Last of Us began in 2009,
+                            soon
+                            after the release of Naughty Dog's previous
+                            game,
+                            Uncharted 2: Among Thieves. For the first time
+                            in
+                            the company's history, Naughty Dog split into
+                            two
+                            teams; while one team developed Uncharted 3:
+                            Drake's
+                            Deception, the other half developed The Last of
+                            Us.
+                            The relationship between Joel and Ellie became
+                            the
+                            focus, with all other elements developed around
+                            it.
+                            Actors Troy Baker and Ashley Johnson portrayed
+                            Joel
+                            and Ellie, respectively, through voice and
+                            motion
+                            capture, and assisted creative director Neil
+                            Druckmann with the development of the characters
+                            and
+                            story. The original score was composed and
+                            performed
+                            by Gustavo Santaolalla.</p>
+                    </fieldset>
+                </span>
+            <hr>
+            <span class="info4">
+                    <p>After all we've been through... Everything that I've
+                        done, it can't be for nothing. <br>―Ellie</p>
+                    <span style="margin-top: 10px;">
+                        <audio controls>
+                            <source src="EllieQuote.ogg" type="audio/mp3">
+                        </audio>
+                    </span>
+            </span>
+            <span class="info5">
+                    <p>I struggled for a long time with survivin', and no
+                        matter
+                        what, you keep finding something to fight
+                        for.<br>―Joel</p>
+                    <span style="margin-top: 10px;">
+                        <audio controls>
+                            <source src="Joel_quote.oga" type="audio/mp3">
+                        </audio>
+                    </span>
+            </span>
+            <span class="info6">
+                    <p>Once upon a time, I had somebody that I cared about.
+                        It
+                        was a partner. Somebody I had to look after. And in
+                        this
+                        world, that sort of shit's good for one thing:
+                        gettin'
+                        you killed.
+                        <br>―Bill's warning.</p>
+                    <span style="margin-top: 10px;">
+                        <audio controls>
+                            <source src="BillQuote.ogg" type="audio/mp3">
+                        </audio>
+                    </span>
+            </span>
+        </div>
+        <hr>
+    </div>
+    <div class="page-content" id="gameplay-content">
+        <div class="infonav">
+            <fieldset>
+                <div>
+                    <h1>Oynanış Süresi</h1>
+                </div>
+                <table class="table">
+                    <tr>
+                        <th> Zorluk / İçerik </th>
+                        <th>Ana Hikaye</th>
+                        <th>Ana Hikaye <br> + <br> Yan Etkinlikler</th>
+                        <th>Tüm İçerik</th>
+                    </tr>
+                    <tr>
+                        <th>Kolay</th>
+                        <td>16 Saat</td>
+                        <td>18 Saat</td>
+                        <td>21 Saat</td>
+                    </tr>
+                    <tr>
+                        <th>Orta</th>
+                        <td>17 Saat</td>
+                        <td>19 Saat</td>
+                        <td>23 Saat</td>
+
+                    </tr>
+                    <tr>
+                        <th>Zor</th>
+                        <td>18 Saat</td>
+                        <td>20 Saat</td>
+                        <td>24 Saat</td>
+                    </tr>
+                    <tr>
+                        <th>Gerçekçi</th>
+                        <td>19 Saat</td>
+                        <td>21 Saat</td>
+                        <td>26 Saat</td>
+                    </tr>
+                    <tr>
+                        <th>Hayatta Kalma</th>
+                        <td>19 Saat</td>
+                        <td>22 Saat</td>
+                        <td>27 Saat</td>
+                    </tr>
+                </table>
+        </div>
+        </fieldset>
+        <div class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/y99DqGw-jG4?si=vvzY8dR6ApDeHl1S" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/4u_Gg0vM9hc?si=2zXn9MyWPUQxI2dT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        </div>
+        <hr>
+        <hr>
+        <div class="x">
+            <h1>Gameplay</h1>
+            <p>X - When standing under a high ledge, press to climb up to the ledge. When next to a low barricade (such as a window, desk, etc.), press to jump over the barricade. When selecting a weapon from the weapon selection menu, hold cn_X to change
+                holstered weapons (if available). O - Press to crouch. When in a crouch position, you are able to sneak around enemies easier by reducing the line of sight as well as decreasing noise made by your movement. Weapon accuracy is also drastically
+                increased. S - Press for a melee attack. If holding no weapon, you'll attack with bare fists. When pressed while an enemy is grabbed, you'll perform a stealth kill. T - Press to pick up items and ammunition. When pressed while an enemy
+                is grabbed, you'll perform a shiv stealth kill (if you have a shiv in your inventory). L1 - Hold while moving to sprint. R1 - Hold to use Listen Mode, which allows you to detect enemies in the area. L2 - Hold to aim an equipped weapon
+                or projectile. R2 - Press or hold to fire an equipped weapon or projectile. When holding a projectile, pressing cn_R2 will perform a quick throw. When holding a firearm without holding cn_L2, you will reload the equipped weapon. When pressed
+                while an enemy is grabbed, you'll perform a pistol execution (if you have ammunition). Dpad - Pressing a direction opens up the weapon selection menu. LSc - When Photo Mode is active in options, press to activate Photo Mode in-game. RSc
+                - Press to turn on/off flashlight. LS - Use for general movement and aiming when holding cn_L2. RS - Use for general camera movement. start - Press to pause the game. Touchpad - Press to show the backpack menu. Human enemies in The Last
+                of Us Remastered are part of various factions you'll meet throughout the game. Certain enemies come equipped with specific weapons and armor, including: Melee enemies - these enemies tend to bum rush you and attempt to beat you down up
+                close. When defeated, the melee enemies drop their equipped weapon, allowing you access to a fresh melee weapon if needed. Standard firearm enemies - human enemies throughout the game come equipped with the various firearms available,
+                from pistols to shotguns and everything in between. Depending on which difficulty mode you're playing on, firearm enemies may drop ammunition. Armored enemies - some enemies come equipped with a full set of armor, including vests and helmets.
+                Naturally, armored enemies can withstand much more damage than non-armored foes. Molotov enemies - Molotov enemies have one attack, but it's very dangerous. They can launch Molotovs at your position which causes significant damage. You
+                can easily spot Molotov enemies by their red shirts. Infected enemies in The Last of Us Remastered are some of the most dangerous the game has to offer and provide challenges far different than the human enemies. Unlike most human enemies,
+                the infected cannot attack from a distance (except for the rarely-seen bloater), so they rely on up-close attacking. What they lack in long-distance ability they make up in speed and power. The infected enemies come in four stages of infection:
+                Stage 1 "Runner" - Runners, as their name implies, rely on their speed to close the distance between you and them. They are recently-infected, so they still closely resemble humans. They also still have their sight, so you'll have to keep
+                that in mind when trying to sneak around them. They rely on strength in numbers to overwhelm you, so be careful and watch your surroundings to ensure you aren't surrounded. Though they still have their eyesight, they CANNOT see your flashlight,
+                so feel free to keep it turned on when fighting the infected. Stage 2 "Stalker" - Stalkers are rare; you'll only run into them a couple of times throughout the game. Stalkers are in the second stage of infection, so they look less like
+                humans but still have some characteristics. They tend to run around in the shadows, darting in and out of cover until they charge at you. Stalkers can easily overwhelm you if you allow them to surround you. Stalkers are more blind than
+                the Runners; however, they still have their eyesight. Combining that fact with their speed makes the Stalkers a challenging adversary. Stage 3 "Clicker" - Aptly named due to their tendency to make clicking noises to detect their prey,
+                Clickers are some of the most dangerous enemies in the game. They are completely blind, but they make up for that with their exceptional hearing. On higher difficulty modes, Clickers can still hear you if you sneak around unless you move
+                as slow as possible. Once they've detected you, Clickers will charge you while swinging their arms wildly. If they catch you, it's an automatic game over unless you have a shiv available. Even then, if you're low on health, the shiv may
+                not help. Therefore, it is best to keep your distance from Clickers as best you can. If your aim is true, go for the head; they can absorb a lot more damage than any other enemy, aside from Bloaters. Stage 4 "Bloater" - You won't run into
+                Bloaters very often during your journey, for good reason; these enemies are without a doubt the most deadly in the game. Representing the fourth and final stage of infection, Bloaters are vastly larger than any other enemy in the game.
+                If you find yourself in the grip of a Bloater, your game is over; there's no escaping their clutches. They can take a lot of damage, so they'll tear through your ammunition rather quickly. They also have the ability to throw pods at you
+                from a distance, damaging you while standing in the resulting cloud of spores. Thankfully, you can avoid most Bloaters throughout the game by sneaking by them, with the exception of two particular scenarios. Weapons in The Last of Us Remastered
+                range from pistols and rifles to shotguns and even a flamethrower. Each weapon has its strengths and weaknesses. Weapons are acquired by finding them at certain times on your journey. The firearm weapons, in order of availability in the
+                game, are: 9MM Pistol.
+            </p>
+        </div>
+    </div>
+    <div class="info">
+        <marquee direction="right" scrollamount="10" style=" font-size: 15px"><b>Zekeriya Barış Atay<br>Mehmet Efe Usta</b></marquee>
+    </div>
+    <script>
+        var activeButtonId = null;
+
+        function showPage(pageId) {
+            if (activeButtonId) {
+                document.getElementById(activeButtonId).classList.remove('active');
+                document.getElementById(activeButtonId + '-content').style.display = 'none';
+            }
+
+            document.getElementById(pageId).classList.add('active');
+            document.getElementById(pageId + '-content').style.display = 'block';
+            activeButtonId = pageId;
+        }
+
+        function redirectToPage() {
+            var url = "https://thelastofus.fandom.com/wiki/The_Last_of_Us_Wiki";
+            window.open(url, "_blank");
+        }
+    </script>
+</body>
+
+</html>
