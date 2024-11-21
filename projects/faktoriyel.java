@@ -7,7 +7,7 @@ adım5: fakt=fakt*f;
 adım6: faktöriyel değerini yazdır
 adım7: bitir
  */
-package projects;
+package schoolProject;
 
 import java.util.Scanner;
 
