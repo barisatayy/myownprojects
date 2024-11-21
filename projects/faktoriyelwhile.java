@@ -6,7 +6,7 @@ adım4: s<=a ise fakt=fakt*s s=s+1
 adım5: faktöriyeli yazdır
 adım6: bitir
  */
-package projects;
+package schoolProject;
 
 import java.util.Scanner;
 
